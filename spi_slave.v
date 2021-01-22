@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-Gregory Kravit APPENDIX B: Verilog
+
 87
 ////////////////////////////////////////////////////////////////////////////////
 //test_jbimu.v
@@ -44,7 +44,7 @@ jb_imu uut (
 .sck(sck),
 .ss(ss)
 );
-Gregory Kravit APPENDIX B: Verilog
+
 88
 wire slave_done;
 reg [7:0] din;
@@ -86,6 +86,6 @@ start = 1;
 start = 0;
 #10000;
 end
-Gregory Kravit APPENDIX B: Verilog
+
 89
 endmodule

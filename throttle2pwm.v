@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module throttle2pwm #(parameter PWM_LEN = 12)
 (
-Gregory Kravit APPENDIX B: Verilog
+
 64
 input clock,
 input reset,
@@ -49,7 +49,7 @@ case(throttle_setting)
 8'd14: signal_time = 12'd1108;
 8'd15: signal_time = 12'd1111;
 8'd16: signal_time = 12'd1114;
-Gregory Kravit APPENDIX B: Verilog
+
 65
 8'd17: signal_time = 12'd1117;
 8'd18: signal_time = 12'd1120;
@@ -80,7 +80,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd43: signal_time = 12'd1199;
 8'd44: signal_time = 12'd1202;
 8'd45: signal_time = 12'd1205;
-Gregory Kravit APPENDIX B: Verilog
+
 66
 8'd46: signal_time = 12'd1208;
 8'd47: signal_time = 12'd1211;
@@ -111,7 +111,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd72: signal_time = 12'd1290;
 8'd73: signal_time = 12'd1293;
 8'd74: signal_time = 12'd1296;
-Gregory Kravit APPENDIX B: Verilog
+
 67
 8'd75: signal_time = 12'd1299;
 8'd76: signal_time = 12'd1302;
@@ -142,7 +142,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd101: signal_time = 12'd1381;
 8'd102: signal_time = 12'd1384;
 8'd103: signal_time = 12'd1387;
-Gregory Kravit APPENDIX B: Verilog
+
 68
 8'd104: signal_time = 12'd1390;
 8'd105: signal_time = 12'd1393;
@@ -173,7 +173,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd130: signal_time = 12'd1472;
 8'd131: signal_time = 12'd1475;
 8'd132: signal_time = 12'd1478;
-Gregory Kravit APPENDIX B: Verilog
+
 69
 8'd133: signal_time = 12'd1481;
 8'd134: signal_time = 12'd1484;
@@ -204,7 +204,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd159: signal_time = 12'd1563;
 8'd160: signal_time = 12'd1566;
 8'd161: signal_time = 12'd1569;
-Gregory Kravit APPENDIX B: Verilog
+
 70
 8'd162: signal_time = 12'd1572;
 8'd163: signal_time = 12'd1575;
@@ -235,7 +235,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd188: signal_time = 12'd1654;
 8'd189: signal_time = 12'd1657;
 8'd190: signal_time = 12'd1660;
-Gregory Kravit APPENDIX B: Verilog
+
 71
 8'd191: signal_time = 12'd1663;
 8'd192: signal_time = 12'd1666;
@@ -266,7 +266,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd217: signal_time = 12'd1745;
 8'd218: signal_time = 12'd1748;
 8'd219: signal_time = 12'd1751;
-Gregory Kravit APPENDIX B: Verilog
+
 72
 8'd220: signal_time = 12'd1754;
 8'd221: signal_time = 12'd1757;
@@ -297,7 +297,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd246: signal_time = 12'd1836;
 8'd247: signal_time = 12'd1839;
 8'd248: signal_time = 12'd1842;
-Gregory Kravit APPENDIX B: Verilog
+
 73
 8'd249: signal_time = 12'd1845;
 8'd250: signal_time = 12'd1848;

@@ -36,7 +36,7 @@ jb_imu uut (
 .accel_x(accel_x),
 .accel_y(accel_y),
 .accel_z(accel_z),
-Gregory Kravit APPENDIX B: Verilog
+
 90
 .done(done),
 .miso(miso),
@@ -79,7 +79,7 @@ reset = 0;
 // Add stimulus here
 din = 8'h00;
 #20;
-Gregory Kravit APPENDIX B: Verilog
+
 91
 start = 1;
 #20;

@@ -17,7 +17,7 @@
 // C = 2: SCK_FREQ = CLK_FREQ /4
 // 3: SCK_FREQ = CLK_FREQ /8
 // 4: SCK_FREQ = CLK_FREQ /16
-Gregory Kravit APPENDIX B: Verilog
+
 80
 // 5: SCK_FREQ = CLK_FREQ /32
 // SPI_BUS_WIDTH:
@@ -59,7 +59,7 @@ assign data_out = data_out_q;
 assign new_data = new_data_q;
 always @(*) begin
 sck_d = sck_q;
-Gregory Kravit APPENDIX B: Verilog
+
 81
 data_d = data_q;
 mosi_d = mosi_q;
@@ -105,7 +105,7 @@ always @(posedge clk) begin
 if (rst) begin
 ctr_q <= {NUM_BITS-1{1'b0}};
 data_q <= {SPI_BUS_WIDTH{1'b0}};
-Gregory Kravit APPENDIX B: Verilog
+
 82
 sck_q <= {SPI_CLK_DIV{1'b0}};
 mosi_q <= 1'b1;

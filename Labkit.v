@@ -26,7 +26,7 @@
 //
 // CHANGES FOR BOARD REVISION 002
 //
-Gregory Kravit APPENDIX B: Verilog
+
 94
 // 1) Added SRAM clock feedback path input and output
 // 2) Renamed "mousedata" to "mouse_data"
@@ -72,7 +72,7 @@ vga_out_vsync,
 tv_out_ycrcb, tv_out_reset_b, tv_out_clock, tv_out_i2c_clock,
 tv_out_i2c_data, tv_out_pal_ntsc, tv_out_hsync_b,
 tv_out_vsync_b, tv_out_blank_b, tv_out_subcar_reset,
-Gregory Kravit APPENDIX B: Verilog
+
 95
 tv_in_ycrcb, tv_in_data_valid, tv_in_line_clock1,
 tv_in_line_clock2, tv_in_aef, tv_in_hff, tv_in_aff,
@@ -105,7 +105,7 @@ analyzer4_data, analyzer4_clock);
 output beep, audio_reset_b, ac97_synch, ac97_sdata_out;
 input ac97_bit_clock, ac97_sdata_in;
 output [7:0] vga_out_red, vga_out_green, vga_out_blue;
-Gregory Kravit APPENDIX B: Verilog
+
 96
 output vga_out_sync_b, vga_out_blank_b, vga_out_pixel_clock,
 vga_out_hsync, vga_out_vsync;
@@ -142,7 +142,7 @@ input disp_data_in;
 output disp_data_out;
 input button0, button1, button2, button3, button_enter, button_right,
 button_left, button_down, button_up;
-Gregory Kravit APPENDIX B: Verilog
+
 97
 input [7:0] switch;
 output [7:0] led;
@@ -184,7 +184,7 @@ assign tv_out_i2c_data = 1'b0;
 assign tv_out_pal_ntsc = 1'b0;
 assign tv_out_hsync_b = 1'b1;
 assign tv_out_vsync_b = 1'b1;
-Gregory Kravit APPENDIX B: Verilog
+
 98
 assign tv_out_blank_b = 1'b1;
 assign tv_out_subcar_reset = 1'b0;
@@ -230,7 +230,7 @@ assign flash_byte_b = 1'b1;
 // flash_sts is an input
 // RS-232 Interface
 assign rs232_txd = 1'b1;
-Gregory Kravit APPENDIX B: Verilog
+
 99
 assign rs232_rts = 1'b1;
 // rs232_rxd and rs232_cts are inputs
@@ -272,7 +272,7 @@ assign systemace_oe_b = 1'b1;
 // assign analyzer4_data = 16'h0;
 // assign analyzer4_clock = 1'b1;
 ////////////////////////////////////////////////////////////////////////////
-Gregory Kravit APPENDIX B: Verilog
+
 100
 //
 // Reset Generation
@@ -311,7 +311,7 @@ wire [14:0] distance_out;
 wire [14:0] distance;
 wire error;
 wire sensor_ready;
-Gregory Kravit APPENDIX B: Verilog
+
 101
 // srf05_trigger_and_echo srf05(
 // .clock(clock_27mhz), //50 MHz clock signal
@@ -345,7 +345,7 @@ srf05 height_sensor(
 // .rfd(nfd), .rdy(fir_ready), .nd(fir_nd), .clk(clock_27mhz), .dout(fir_dout), .din(fir_din));
 ////
 //Ring Buffer
-Gregory Kravit APPENDIX B: Verilog
+
 102
 reg [14:0] buffer[31:0];
 reg [19:0] sum = 0;
@@ -384,7 +384,7 @@ wire [7:0] spi_data;
 assign led = {1'b1, miso,switch[1],switch[2],switch[3],~sensor_reset,~sensor_start,~sensor_ready};
 jb_imu imu(
 .clock(clock_27mhz), //50 Mhz clock
-Gregory Kravit APPENDIX B: Verilog
+
 103
 .reset(sensor_reset), //reset signal
 .start(sensor_start), //start normal operations
@@ -431,7 +431,7 @@ reg signed [15:0] avg_yaw;
 reg signed [15:0] avg_roll_rate;
 reg signed [15:0] avg_pitch_rate;
 reg signed [15:0] avg_yaw_rate;
-Gregory Kravit APPENDIX B: Verilog
+
 104
 reg signed [15:0] avg_accx;
 reg signed [15:0] avg_accy;
@@ -469,7 +469,7 @@ avg_roll_rate <= sum_roll_rate/64;
 sum_pitch_rate <= sum_pitch_rate + (pitch_rate) - (buffer_pitch_rate[offset2]);
 buffer_pitch_rate[offset] <= pitch_rate;
 avg_pitch_rate <= sum_pitch_rate/64;
-Gregory Kravit APPENDIX B: Verilog
+
 105
 sum_yaw_rate <= sum_yaw_rate + (yaw_rate) - (buffer_yaw_rate[offset2]);
 buffer_yaw_rate[offset2] <= yaw_rate;
@@ -500,7 +500,7 @@ assign data_out = {1'b0,avg};
 //hex display out
 wire [63:0] data;
 assign data = {imu_info,data_out};
-Gregory Kravit APPENDIX B: Verilog
+
 106
 display_16hex hexdisplay(.reset(reset),.clock_27mhz(clock_27mhz),
 .data(data), .disp_blank(disp_blank),
@@ -539,7 +539,7 @@ if (reset)
 begin
 count <= 0;
 new <= noisy;
-Gregory Kravit APPENDIX B: Verilog
+
 107
 clean <= noisy;
 end

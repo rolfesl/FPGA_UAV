@@ -25,7 +25,7 @@ output reg imu_start, //start imu signal
 output reg imu_reset, //reset imu signal
 input imu_new_data, //new data available
 input signed [15:0] cur_roll, //roll angle: sensor reading from imu
-Gregory Kravit APPENDIX B: Verilog
+
 50
 input signed [15:0] cur_pitch, //pitch angle: sensor reading from imu
 input signed [15:0] cur_yaw, //yaw angle: sensor reading from imu
@@ -63,7 +63,7 @@ RANGE_SENSOR2 = 4'd6,
 RANGE_SENSOR3 = 4'd7;
 localparam IMU1 = 4'd8,
 IMU2 = 4'd9,
-Gregory Kravit APPENDIX B: Verilog
+
 51
 IMU3 = 4'd10;
 localparam END1 = 4'd11,
@@ -103,7 +103,7 @@ reg signed [15:0] avg_pitch;
 reg signed [15:0] avg_yaw;
 reg signed [15:0] avg_roll_rate;
 reg signed [15:0] avg_pitch_rate;
-Gregory Kravit APPENDIX B: Verilog
+
 52
 reg signed [15:0] avg_yaw_rate;
 integer i2;
@@ -151,7 +151,7 @@ avg_yaw_rate <= 16'sd0;
 end
 else begin
 state <= next_state;
-Gregory Kravit APPENDIX B: Verilog
+
 53
 timer_q <= (state != next_state) ? 4'd0 : timer_d;
 //Case Specific Shift Registers
@@ -188,7 +188,7 @@ RANGE_SENSOR2: begin
 if(srf05_new_data) begin
 sum_dist <= sum_dist + (distance) - (buffer_dist[index]);
 buffer_dist[index] <= distance;
-Gregory Kravit APPENDIX B: Verilog
+
 54
 index <= (index == 6'd31) ? 5'd0 : index + 1'b1; //overflow at 32
 end
@@ -222,7 +222,7 @@ end
 avg_roll <= sum_roll/64;
 avg_pitch <= sum_pitch/64;
 avg_yaw <= sum_yaw/64;
-Gregory Kravit APPENDIX B: Verilog
+
 55
 avg_roll_rate <= sum_roll_rate/64;
 avg_pitch_rate <= sum_pitch_rate/64;
@@ -258,7 +258,7 @@ always @(*) begin
 timer_d = timer_q;
 //Case Specific Latches
 case(state)
-Gregory Kravit APPENDIX B: Verilog
+
 56
 RESET: next_state = (~start) ? RESET : (calibrate) ? CALIBRATE : RANGE_SENSOR1;
 CALIBRATE: begin

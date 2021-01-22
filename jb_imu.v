@@ -26,7 +26,7 @@ input idle,
 input [7:0] throttle_setting,
 output [11:0] pwm_signal_time
 );
-Gregory Kravit APPENDIX B: Verilog
+
 74
 reg [11:0] signal_time;
 assign pwm_signal_time = (idle || reset) ? 12'd900 : signal_time;
@@ -75,7 +75,7 @@ case(throttle_setting)
 8'd40: signal_time = 12'd1189;
 8'd41: signal_time = 12'd1193;
 8'd42: signal_time = 12'd1196;
-Gregory Kravit APPENDIX B: Verilog
+
 75
 8'd43: signal_time = 12'd1199;
 8'd44: signal_time = 12'd1202;
@@ -125,7 +125,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd88: signal_time = 12'd1340;
 8'd89: signal_time = 12'd1343;
 8'd90: signal_time = 12'd1346;
-Gregory Kravit APPENDIX B: Verilog
+
 76
 8'd91: signal_time = 12'd1349;
 8'd92: signal_time = 12'd1353;
@@ -175,7 +175,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd136: signal_time = 12'd1491;
 8'd137: signal_time = 12'd1494;
 8'd138: signal_time = 12'd1497;
-Gregory Kravit APPENDIX B: Verilog
+
 77
 8'd139: signal_time = 12'd1500;
 8'd140: signal_time = 12'd1503;
@@ -225,7 +225,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd184: signal_time = 12'd1641;
 8'd185: signal_time = 12'd1644;
 8'd186: signal_time = 12'd1648;
-Gregory Kravit APPENDIX B: Verilog
+
 78
 8'd187: signal_time = 12'd1651;
 8'd188: signal_time = 12'd1654;
@@ -275,7 +275,7 @@ Gregory Kravit APPENDIX B: Verilog
 8'd232: signal_time = 12'd1792;
 8'd233: signal_time = 12'd1795;
 8'd234: signal_time = 12'd1798;
-Gregory Kravit APPENDIX B: Verilog
+
 79
 8'd235: signal_time = 12'd1801;
 8'd236: signal_time = 12'd1804;

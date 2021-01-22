@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Flight Control Module Major FSM
 //
@@ -21,7 +21,7 @@ input signed [15:0] roll_rate,
 input signed [15:0] pitch_rate,
 input signed [15:0] yaw_rate,
 // //Arithmetic Inputs
-Gregory Kravit APPENDIX B: Verilog
+
 30
 // input signed [15:0] desired_roll,
 // input signed [15:0] desired_pitch,
@@ -47,7 +47,7 @@ output [7:0] throttle4
 // 1 Second Divider
 wire reset_div1, en_sec;
 divider_sec #(.CLK_FRQ_MHZ(50)) timer_sec(.clock(clock),.reset(reset_div1),.en_sec(en_sec));
-Gregory Kravit APPENDIX B: Verilog
+
 31
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /// Initialization Components
@@ -72,7 +72,7 @@ flight_control_initialize init(
 .error_srf05(error_srf05),
 .error_imu(error_imu),
 .reset_1sec(init_reset_div1), //reset 1 sec divider
-Gregory Kravit APPENDIX B: Verilog
+
 32
 .en_sec(en_sec), //divider signal from 1 second divider
 .calibrate(calibrate), //if high, calibrate motors
@@ -92,7 +92,7 @@ Gregory Kravit APPENDIX B: Verilog
 .cur_yaw(yaw), //yaw angle: sensor reading from imu
 .cur_roll_rate(roll_rate), //roll rate: sensor reading from imu
 .cur_pitch_rate(pitch_rate), //pitch rate: sensor reading from imu
-Gregory Kravit APPENDIX B: Verilog
+
 33
 .cur_yaw_rate(yaw_rate), //yaw rate: sensor reading from imu
 .offset_roll(init_roll), //roll angle: offset for control arithmetic

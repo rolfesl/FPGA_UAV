@@ -10,7 +10,7 @@ reg start;
 wire miso;
 // Outputs
 wire [15:0] roll;
-Gregory Kravit APPENDIX B: Verilog
+
 83
 wire [15:0] pitch;
 wire [15:0] yaw;
@@ -58,7 +58,7 @@ spi_slave slave(
 .din(din),
 .dout(slave_dout)
 );
-Gregory Kravit APPENDIX B: Verilog
+
 84
 always #10 clock = ~clock; //50Mhz = 20 ns period
 always #20 clks = ~clks; //25 Mhz slave clock

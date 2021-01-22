@@ -27,7 +27,7 @@ reg pwm_on_q, pwm_on_d;
 assign pwm_reset = ~pwm_on_q;
 always @(posedge clock) begin
 if(reset) begin
-Gregory Kravit APPENDIX B: Verilog
+
 59
 state <= IDLE;
 pwm_on_q <= 1'b0;
@@ -71,7 +71,7 @@ throttle2pwm throttleLUT2(
 throttle2pwm throttleLUT3(
 .clock(clock),
 .reset(pwm_reset),
-Gregory Kravit APPENDIX B: Verilog
+
 60
 .idle(idle),
 .throttle_setting(throttle3),
@@ -110,7 +110,7 @@ pwm motor3 //400 hz = 2500 us period
 .compare(compare[23:12]), //compare value in microseconds
 .pwm(pwm3) //pwm signal out
 );
-Gregory Kravit APPENDIX B: Verilog
+
 61
 pwm motor4 //400 hz = 2500 us period
 (

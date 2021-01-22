@@ -18,7 +18,7 @@ output reg motors_start, //start motor controller
 output reg motors_reset, //reset motor controller
 output reg srf05_start, //start height sensor
 output reg srf05_reset, //reset height sensor
-Gregory Kravit APPENDIX B: Verilog
+
 37
 input srf05_new_data,
 input [14:0] distance, //height reading from sensor (in microseconds)
@@ -38,7 +38,7 @@ output reg signed [15:0] offset_yaw, //yaw angle: offset for control arithmetic
 output reg signed [15:0] offset_roll_rate, //roll rate: offset for control arithmetic
 output reg signed [15:0] offset_pitch_rate, //pitch rate: offset for control arithmetic
 output reg signed [15:0] offset_yaw_rate //yaw rate: offset for control arithmetic
-Gregory Kravit APPENDIX B: Verilog
+
 38
 );
 //Initialization Steps
@@ -68,7 +68,7 @@ IMU2 = 4'd9,
 IMU3 = 4'd10;
 localparam END1 = 4'd11,
 END2 = 4'd12;
-Gregory Kravit APPENDIX B: Verilog
+
 39
 localparam DONE = 4'd13;
 assign done = (state == DONE);
@@ -89,7 +89,7 @@ integer i;
 ///AVeraging Filter for IMU outputs
 //Ring Buffer
 reg signed [15:0] buffer_roll[63:0];
-Gregory Kravit APPENDIX B: Verilog
+
 40
 reg signed [15:0] buffer_pitch[63:0];
 reg signed [15:0] buffer_yaw[63:0];
@@ -119,7 +119,7 @@ integer i2;
 // buffer_yaw_rate[i2] = 16'sd0;
 // end
 // end
-Gregory Kravit APPENDIX B: Verilog
+
 41
 ////////////////////////////////////////////////////////////////////////////////////////////
 // State Machine
@@ -149,7 +149,7 @@ sum_yaw_rate <= 22'sd0;
 avg_roll <= 16'sd0;
 avg_pitch <= 16'sd0;
 avg_yaw <= 16'sd0;
-Gregory Kravit APPENDIX B: Verilog
+
 42
 avg_roll_rate <= 16'sd0;
 avg_pitch_rate <= 16'sd0;
@@ -177,7 +177,7 @@ end
 CALIBRATE: begin
 motors_start <= 1'b1;
 motors_reset <= 1'b0;
-Gregory Kravit APPENDIX B: Verilog
+
 43
 throttles <= (timer_d < 2) ? 32'hFF_FF_FF_FF : 32'd0; //High then low throttle to calibrate
 end
@@ -200,7 +200,7 @@ avg_dist <= sum_dist>>5;
 end
 RANGE_SENSOR3: begin
 offset_distance <= avg_dist; //set initial offset for height
-Gregory Kravit APPENDIX B: Verilog
+
 44
 // srf05_reset <= 1'b1; //shut off sensor
 srf05_start <= 1'b0;
@@ -222,7 +222,7 @@ buffer_roll_rate[index] <= cur_roll_rate;
 sum_pitch_rate <= sum_pitch_rate + (cur_pitch_rate) - (buffer_pitch_rate[index]);
 buffer_pitch_rate[index] <= cur_pitch_rate;
 sum_yaw_rate <= sum_yaw_rate + (cur_yaw_rate) - (buffer_yaw_rate[index]);
-Gregory Kravit APPENDIX B: Verilog
+
 45
 buffer_yaw_rate[index] <= cur_yaw_rate;
 index <= index + 1'b1;
@@ -247,7 +247,7 @@ end
 //Spin Rotors to Finish Intialization
 END1: begin
 motors_start <= 1'b1;
-Gregory Kravit APPENDIX B: Verilog
+
 46
 motors_reset <= 1'b0;
 throttles <= 32'h01_02_03_04;
@@ -272,7 +272,7 @@ timer_d = (en_sec) ? timer_q + 1'b1 : timer_q;
 next_state = (timer_q == 4) ? CALIBRATE_COMPLETE : CALIBRATE; //elapsed time = 4 seconds
 end
 CALIBRATE_COMPLETE: begin
-Gregory Kravit APPENDIX B: Verilog
+
 47
 timer_d = (en_sec) ? timer_q + 1'b1 : timer_q;
 next_state = (timer_q == 3) ? RANGE_SENSOR1: CALIBRATE_COMPLETE; //elapsed time = 3 seconds
@@ -298,7 +298,7 @@ END1: next_state = END2;
 END2: begin
 timer_d = (en_sec) ? timer_q + 1'b1 : timer_q;
 next_state = (timer_q == 3) ? DONE: END2; //elapsed time = 3 seconds
-Gregory Kravit APPENDIX B: Verilog
+
 48
 end
 ERROR_SRF05: next_state = DONE;

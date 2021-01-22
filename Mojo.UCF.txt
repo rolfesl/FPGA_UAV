@@ -29,7 +29,7 @@ NET "imu[1]" LOC = P94;
 NET "imu[2]" LOC = P97;
 NET "imu[3]" LOC = P99;
 # SRF05
-Gregory Kravit APPENDIX B: Verilog
+
 58
 NET "srf05[0]" LOC = P8 | IOSTANDARD = LVTTL;
 NET "srf05[1]" LOC = P7 | IOSTANDARD = LVTTL;

@@ -29,7 +29,7 @@ jb_imu uut (
 .start(start),
 .roll(roll),
 .pitch(pitch),
-Gregory Kravit APPENDIX B: Verilog
+
 92
 .yaw(yaw),
 .roll_rate(roll_rate),
@@ -73,7 +73,7 @@ reset = 0;
 start = 0;
 din = 0;
 // Wait 100 ns for global reset to finish
-Gregory Kravit APPENDIX B: Verilog
+
 93
 reset = 1;
 #100;

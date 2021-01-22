@@ -4,7 +4,7 @@
 module test_jbimu;
 // Inputs
 reg clks;
-Gregory Kravit APPENDIX B: Verilog
+
 85
 reg clock;
 reg reset;
@@ -51,7 +51,7 @@ spi_slave slave(
 .clk(clks),
 .rst(reset),
 .ss(ss),
-Gregory Kravit APPENDIX B: Verilog
+
 86
 .mosi(mosi),
 .miso(miso),
